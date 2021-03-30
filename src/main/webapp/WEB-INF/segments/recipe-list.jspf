@@ -1,0 +1,40 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:forEach var="recipe" items="${requestScope.recipes}">
+
+    <article class="recipe" >
+        <a href="${pageContext.request.contextPath.concat('/recipe/view?id=').concat(recipe.id)}">
+        <h2 ${pageContext.request.contextPath.concat('/recipe/view?id=').concat(recipe.id)}
+                class="recipe-header"><c:out value="${recipe.title}"/></h2>
+        <p class="recipe-details">Added by: ${recipe.author} ${recipe.dateAdded.format(DateTimeFormatter
+                .ofPattern("dd/MM/yyyy HH:mm"))}</p>
+        <a>
+            <img class="recipe-image" src="${recipe.url} ">
+        </a>
+        <div class="recipe-footer">
+            <strong class="vote">
+                <a href="${pageContext.request.contextPath.concat('/recipe/vote?id=').concat(recipe.id)
+                .concat('&type=UP')}" class="recipe-link upvote">
+                    <i class="fas fa-arrow-alt-circle-up recipe-upvote"></i>
+                </a>
+                <p class="recipe-votes">${recipe.voteCount}</p>
+                <a href="${pageContext.request.contextPath.concat('/recipe/vote?id=').concat(recipe.id)
+                .concat('&type=DOWN')}" class="recipe-link downvote">
+                    <i class="fas fa-arrow-alt-circle-down recipe-downvote"></i>
+                </a>
+            </strong>
+            <strong class="time">
+                <a class="prepare-time-icon">
+                    <i class="far fa-clock"></i>
+                </a>
+                <p class="prepare-time">${recipe.prepTimeInMinutes}</p>
+            </strong>
+        </div>
+        </a>
+    </article>
+</c:forEach>
+
+
+

@@ -1,0 +1,38 @@
+/* Ramka, marginesy, wyÅ›rodkowanie i maksymalna szerokoÅ›Ä‡ */
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 1200px;
+    background: #242424;
+}
+
+/* Rozmiar czcionki i marginesy miÄ™dzy inputami */
+.recipe-form > * {
+    font-size: 1rem;
+    margin: 5px;
+}
+
+/* Czcionka text area i ustawienie zmiany tylko wysokoÅ›ci */
+.recipe-form > textarea {
+    font: 300 1rem 'Roboto', sans-serif;
+    height: 11rem;
+    resize: vertical;
+}
+
+/* Obramowanie elementÃ³w formularza */
+.recipe-form > *:not(.recipe-form-title) {
+    padding: 9px;
+}
+
+/* WyÅ›rodkowanie tytuÅ‚u formularza */
+.recipe-form-title {
+    margin: 16px auto;
+}
+
+/* Zmiana koloru przycisku */
+.recipe-form-button {
+    color: white;
+    background-color: #007AFF;
+}

@@ -1,0 +1,25 @@
+<Context>
+    <Resource name="jdbc/recipe_book"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              type="javax.sql.DataSource"
+              username="root"
+              password="password"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/recipe_book?serverTimezone=UTC"/>
+    <Realm className="org.apache.catalina.realm.DataSourceRealm"
+           dataSourceName="jdbc/recipe_book"
+           localDataSource="true"
+           userTable="user"
+           userNameCol="username"
+           userCredCol="password"
+           userRoleTable="user_role"
+           roleNameCol="role_name">
+        <CredentialHandler
+                className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+                algorithm="SHA-256"/>
+    </Realm>
+    <filter-mapping>
+        <filter-name>FilterCss</filter-name>
+        <url-pattern>*.css</url-pattern>
+    </filter-mapping>
+</Context>
